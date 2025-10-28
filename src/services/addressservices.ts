@@ -9,14 +9,31 @@ class AddressService {
       throw new Error(err.message || "Failed to create user");
     }
   }
-  async getAllAddress(){
-    try {
-      const addresses = await Address.findAll();
-      return addresses;
-    } catch (err: any) {
-      throw new Error(err.message || "Failed to create user");
-    }
+  // async getAllAddress(){
+  //   try {
+  //     const addresses = await Address.findAll();
+  //     return addresses;
+  //   } catch (err: any) {
+  //     throw new Error(err.message || "Failed to create user");
+  //   }
+  // }
+
+async getAllAddresses(pincode?: string) {
+  try {
+    const whereClause = pincode ? { pincode } : {};
+
+    const addresses = await Address.findAll({
+      where: whereClause,
+      include: [{ model: User, as: "user" }],
+    });
+
+    return addresses;
+  } catch (err: any) {
+    throw new Error(err.message || "Failed to fetch addresses");
   }
+}
+
+
   async getAddressById(Id:any){
     try {
       const address = await Address.findByPk(Id);

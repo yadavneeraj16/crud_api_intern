@@ -12,7 +12,7 @@ class UserService {
   async getallUser() {
     try {
       const users = await User.findAll();
-      
+
       return users;
     } catch (err: any) {
       throw new Error(err.message || "Failed to fetch users");
@@ -22,7 +22,7 @@ class UserService {
   async getUserById(id: number) {
     try {
       const user = await User.findByPk(id);
-      return user; // will be null if not found
+      return user;
     } catch (err: any) {
       throw new Error(err.message || "Failed to fetch user");
     }

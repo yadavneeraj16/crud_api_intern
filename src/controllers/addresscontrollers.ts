@@ -17,17 +17,34 @@ class AddressController {
       });
     }
   }
-  async getallAddress(request: FastifyRequest, reply: FastifyReply) {
-    try {
-      const addresses = await AddressService.getAllAddress();
-      reply.code(200).send(addresses);
-    } catch (error: any) {
-      reply.code(500).send({
-        error: "Failed to get address",
-        details: error.message,
-      });
-    }
+  // async getallAddress(request: FastifyRequest, reply: FastifyReply) {
+  //   try {
+  //     const addresses = await AddressService.getAllAddress();
+  //     reply.code(200).send(addresses);
+  //   } catch (error: any) {
+  //     reply.code(500).send({
+  //       error: "Failed to get address",
+  //       details: error.message,
+  //     });
+  //   }
+  // }
+
+async getAllAddresses(request: FastifyRequest, reply: FastifyReply) {
+  try {
+    const { pincode } = request.query as { pincode?: string };
+
+    const addresses = await AddressService.getAllAddresses(pincode);
+
+    reply.code(200).send(addresses);
+  } catch (error: any) {
+    reply.code(500).send({
+      error: "Failed to fetch addresses",
+      details: error.message,
+    });
   }
+}
+
+
   async getAddressById(
     request: FastifyRequest<{ Params: GetAddressParams }>,
     reply: FastifyReply

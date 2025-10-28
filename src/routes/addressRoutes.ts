@@ -17,7 +17,7 @@ async function userRoutes(fastify: FastifyInstance) {
   
   fastify.addSchema(addressSchema);
    fastify.post('/addresses', { schema: postAddressSchema }, AddressController.createAddress);
- fastify.get('/addresses', { schema: getAllAddressesSchema }, AddressController.getallAddress);
+ fastify.get('/addresses', { schema: getAllAddressesSchema }, AddressController.getAllAddresses);
 fastify.get('/addresses/:userId', { schema: getAddressByIdSchema }, AddressController.getAddressById);
  fastify.put('/addresses/:userId', { schema: updateAddressSchema }, AddressController.UpdateAddress);
 fastify.patch('/addresses/:userId', { schema: PatchupdateAddressSchema }, AddressController.PatchUpdateAddress);
