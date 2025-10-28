@@ -78,7 +78,7 @@ async deleteAddress() {
       });
       return addresses;
     } catch (err: any) {
-      throw new Error(err.message || "Failed to fetch addresses by pincode");
+      throw new Error(err.message || "Failed to fetch addresse by pincode");
     }
   }
 

@@ -1,0 +1,8 @@
+1.create a new repo in GitHub 
+2.add .gitignore filr in vscode in your project  and add the file and folder that is big and having credentials like .env,node_modules/ ;ike that 
+3.now git init in vs code 
+4.git add .
+5.git commit -m "first -commit"
+6.git branch -M main
+7.git remote add origin https://github.com/yadavneeraj16/loan_eligible_check_api.git   give the link of created repo 
+8.git push -u origin main
