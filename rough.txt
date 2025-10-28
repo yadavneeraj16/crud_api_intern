@@ -6,3 +6,11 @@
 6.git branch -M main
 7.git remote add origin https://github.com/yadavneeraj16/loan_eligible_check_api.git   give the link of created repo 
 8.git push -u origin main
+
+
+for existing GitHub repo 
+1.git status using this first check which file is not on GitHub or not pushed on GitHub
+2.git add . or like  git add src/controllers/usercontrollers.ts src/routes/addressRoutes.ts src/services/addressservices.ts rough.txt
+3.git commit -m "updated code "
+4.git push
+
